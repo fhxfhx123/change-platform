@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户权限中心 - Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar h2 { font-size: 17px; }
+    .navbar a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .navbar a:hover { color: white; }
+    .content {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 16px;
+    }
+    .sidebar {
+      background: white;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .sidebar .menu-item {
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+    .sidebar .menu-item.active {
+      background: #eef1ff;
+      color: #4f6ef7;
+      font-weight: 600;
+    }
+    .sidebar .menu-item:hover:not(.active) { background: #f9fafb; }
+    .main-area { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 2px solid #e5e7eb;
+      color: #6b7280;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .tag.blue { background: #eef1ff; color: #4f6ef7; }
+    .tag.green { background: #ecfdf5; color: #10b981; }
+    .tag.gray { background: #f3f4f6; color: #6b7280; }
+    .tag.amber { background: #fffbeb; color: #f59e0b; }
+    .action-btn {
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      background: white;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .action-btn:hover { background: #f9fafb; }
+    .status-bar {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 13px;
+      color: #6b7280;
+      text-align: center;
+      border: 1px dashed #d1d5db;
+    }
+    .status-bar strong { color: #4f6ef7; }
+    .breadcrumb {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <h2>🔐 用户权限中心 · Demo</h2>
+    <a href="../../../index.html">← 返回变更平台</a>
+  </div>
+  <div class="status-bar">✅ Demo 模式 · 数据为模拟展示 · <strong>基于 Reddy 原型 v2.1</strong> · 经 Codex 迭代优化</div>
+  <div class="content">
+    <div class="sidebar">
+      <div class="menu-item active">👥 用户管理</div>
+      <div class="menu-item">📋 角色管理</div>
+      <div class="menu-item">🔑 权限配置</div>
+      <div class="menu-item">📊 审计日志</div>
+      <div class="menu-item">⚙️ 系统设置</div>
+    </div>
+    <div class="main-area">
+      <div class="card">
+        <div class="breadcrumb">系统管理 / 用户管理</div>
+        <h3>用户列表</h3>
+        <table>
+          <tr><th>用户名</th><th>角色</th><th>状态</th><th>最后登录</th><th></th></tr>
+          <tr><td>张明</td><td><span class="tag blue">管理员</span></td><td><span class="tag green">在线</span></td><td>2026-06-04 14:23</td><td><button class="action-btn">编辑</button></td></tr>
+          <tr><td>李华</td><td><span class="tag gray">运营</span></td><td><span class="tag green">在线</span></td><td>2026-06-04 13:58</td><td><button class="action-btn">编辑</button></td></tr>
+          <tr><td>王芳</td><td><span class="tag gray">运营</span></td><td><span class="tag amber">离线</span></td><td>2026-06-03 18:12</td><td><button class="action-btn">编辑</button></td></tr>
+          <tr><td>赵雷</td><td><span class="tag blue">管理员</span></td><td><span class="tag green">在线</span></td><td>2026-06-04 09:05</td><td><button class="action-btn">编辑</button></td></tr>
+          <tr><td>陈琳</td><td><span class="tag" style="background:#f0fdf4;color:#16a34a;">审计</span></td><td><span class="tag amber">离线</span></td><td>2026-06-02 16:40</td><td><button class="action-btn">编辑</button></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>角色树 (树形权限)</h3>
+        <div style="font-size:14px;line-height:2;">
+          <div>📁 系统管理</div>
+          <div style="padding-left:24px;">├─ 👥 用户管理 <span class="tag blue">管理员</span><span class="tag gray" style="margin-left:4px">运营</span></div>
+          <div style="padding-left:24px;">├─ 📋 角色管理 <span class="tag blue">管理员</span></div>
+          <div style="padding-left:24px;">└─ 🔑 权限配置 <span class="tag blue">管理员</span></div>
+          <div style="margin-top:6px;">📁 业务操作</div>
+          <div style="padding-left:24px;">├─ 📄 查看交易 <span class="tag blue">管理员</span><span class="tag gray" style="margin-left:4px">运营</span><span class="tag" style="background:#f0fdf4;color:#16a34a;margin-left:4px">审计</span></div>
+          <div style="padding-left:24px;">├─ ✏️ 编辑交易 <span class="tag blue">管理员</span><span class="tag gray" style="margin-left:4px">运营</span></div>
+          <div style="padding-left:24px;">└─ 🗑️ 删除交易 <span class="tag blue">管理员</span></div>
+          <div style="margin-top:6px;">📁 报表中心</div>
+          <div style="padding-left:24px;">├─ 📊 生成报表 <span class="tag blue">管理员</span><span class="tag gray" style="margin-left:4px">运营</span></div>
+          <div style="padding-left:24px;">└─ 📥 导出数据 <span class="tag blue">管理员</span><span class="tag gray" style="margin-left:4px">运营</span><span class="tag" style="background:#f0fdf4;color:#16a34a;margin-left:4px">审计</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:16px;font-size:12px;color:#9ca3af;">
+    变更记录 v2.0 (2026-06-03) · 此页面为交互原型演示
+  </div>
+</body>
+</html>

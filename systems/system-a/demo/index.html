@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>交易风控系统 - Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar h2 { font-size: 17px; }
+    .navbar a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .navbar a:hover { color: white; }
+    .dashboard {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .card.full { grid-column: 1 / -1; }
+    .card h3 {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .metric-row {
+      display: flex;
+      gap: 20px;
+    }
+    .metric { flex: 1; }
+    .metric .val {
+      font-size: 28px;
+      font-weight: 700;
+      color: #4f6ef7;
+    }
+    .metric .label { font-size: 12px; color: #9ca3af; }
+    .alert {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .alert .time { font-size: 12px; color: #9ca3af; }
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .tag.red { background: #fef2f2; color: #ef4444; }
+    .tag.green { background: #ecfdf5; color: #10b981; }
+    .tag.amber { background: #fffbeb; color: #f59e0b; }
+    .status-bar {
+      grid-column: 1 / -1;
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 13px;
+      color: #6b7280;
+      text-align: center;
+      border: 1px dashed #d1d5db;
+    }
+    .status-bar strong { color: #10b981; }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <h2>⚡ 交易风控系统 · Demo</h2>
+    <a href="../../../index.html">← 返回变更平台</a>
+  </div>
+  <div class="status-bar">✅ Demo 模式 · 数据为模拟展示 · <strong>基于 Reddy 原型 v1.2</strong> · 经 Codex 迭代优化</div>
+  <div class="dashboard">
+    <div class="card">
+      <h3>交易概览</h3>
+      <div class="metric-row">
+        <div class="metric"><div class="val">1,284</div><div class="label">今日交易笔数</div></div>
+        <div class="metric"><div class="val">¥83.6w</div><div class="label">交易金额</div></div>
+        <div class="metric"><div class="val">3</div><div class="label">风险告警</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>系统状态</h3>
+      <div class="metric-row">
+        <div class="metric"><div class="val" style="color:#10b981">正常</div><div class="label">服务状态</div></div>
+        <div class="metric"><div class="val">45ms</div><div class="label">平均响应</div></div>
+        <div class="metric"><div class="val">99.8%</div><div class="label">可用率</div></div>
+      </div>
+    </div>
+    <div class="card full">
+      <h3>实时告警</h3>
+      <div class="alert"><span class="tag red">高风险</span> 异常大额转账 — 单笔 ¥520,000.00 <div class="time">10:23:45</div></div>
+      <div class="alert" style="border-left-color:#f59e0b"><span class="tag amber">中风险</span> 频繁小额试探交易 (5次/分钟) <div class="time">10:18:12</div></div>
+      <div class="alert" style="border-left-color:#f59e0b"><span class="tag amber">中风险</span> 异地登录+交易 (深圳 → 北京) <div class="time">09:55:30</div></div>
+    </div>
+    <div class="card">
+      <h3>规则引擎</h3>
+      <div><span class="tag green">生效</span> 单笔限额 ¥1,000,000</div>
+      <div style="margin-top:8px"><span class="tag green">生效</span> 异地交易二次验证</div>
+      <div style="margin-top:8px"><span class="tag green">生效</span> 频率控制 (10/min)</div>
+    </div>
+    <div class="card">
+      <h3>今日处理</h3>
+      <div class="metric-row">
+        <div class="metric"><div class="val" style="color:#10b981">1,237</div><div class="label">通过</div></div>
+        <div class="metric"><div class="val" style="color:#f59e0b">44</div><div class="label">人工复核</div></div>
+        <div class="metric"><div class="val" style="color:#ef4444">3</div><div class="label">已拦截</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:16px;font-size:12px;color:#9ca3af;">
+    变更记录 v1.2 (2026-06-01) · 此页面为交互原型演示
+  </div>
+</body>
+</html>

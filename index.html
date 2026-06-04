@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多系统变更协同平台</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">Reddy Demo / Codex 迭代 / Markdown 变更沉淀</span>
+          <h1>多系统变更协同平台</h1>
+          <p class="hero-description">
+            把产品 Demo、研发协同信息和每次改动的 Markdown 记录放在一个入口里，方便你统一跟进多个系统。
+          </p>
+          <div class="hero-actions">
+            <a href="#systemsPanel" class="btn btn-primary">查看系统</a>
+            <a href="#guidePanel" class="btn btn-secondary">接入说明</a>
+          </div>
+        </div>
+        <div class="hero-summary" id="heroSummary">
+          <div class="loading-card">正在准备平台信息...</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content" id="app">
+      <div class="loading-state">
+        <h2>平台加载中</h2>
+        <p>正在整理系统目录、Demo 入口和 Markdown 变更文件。</p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>适合产品和研发协同使用的本地变更平台</span>
+      <a href="接入说明.md" target="_blank">查看接入说明</a>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="generated-records.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
